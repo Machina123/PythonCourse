@@ -31,13 +31,7 @@ try:
         word_id = input("Enter a word (Ctrl+C to save and exit): ")
         if not word_id.lower() in mydict.keys():
             url = 'https://od-api.oxforddictionaries.com:443/api/v1/entries/' + language + '/' + word_id.lower()
-
             r = requests.get(url, headers = {'app_id': app_id, 'app_key': app_key})
-
-            # print("code {}\n".format(r.status_code))
-            # print("text \n" + r.text)
-            # print("json \n" + json.dumps(r.json()))
-
             if r.status_code == 200:
                 data = r.json()
                 definitions = []
